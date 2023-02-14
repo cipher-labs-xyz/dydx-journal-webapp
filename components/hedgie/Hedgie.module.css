@@ -1,0 +1,9 @@
+.hedgie {
+  border-radius: 50%;
+}
+
+.fit {
+  max-width: 100%;
+  object-fit: contain;
+  height: fit-content;
+}

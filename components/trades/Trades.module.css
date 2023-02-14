@@ -1,0 +1,106 @@
+.micon {
+ vertical-align: middle;
+ line-height: 0;
+ margin-right: 8px;
+}
+
+.price {
+  color: var(--color-text-dark);
+}
+
+.unrealized {
+  opacity: 0.75;
+}
+
+.LONG, .SHORT, .outcome {
+  border-radius: 2px;
+  text-transform: capitalize;
+  width: 45px;
+  height: 20px;
+  display: inline-block;
+}
+
+.LONG {
+  background-color: var(--color-green-background);
+  color: var(--color-green);
+}
+
+.SHORT {
+  background-color: var(--color-red-background);
+  color: var(--color-red);
+}
+
+.win {
+  color: var(--color-green);
+}
+
+.loss {
+  color: var(--color-red);
+}
+
+.outcome.win {
+  background-color: var(--color-green-background);
+}
+
+.outcome.loss {
+  background-color: var(--color-red-background);
+}
+
+.outcome.even, .outcome.open {
+  background-color: var(--color-base-background);
+}
+
+tr.OPEN {
+  filter: brightness(0.75);
+  background-color: none;
+}
+
+.OPEN:hover {
+  background-color: unset;
+}
+
+td.CLOSED > .time {
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
+
+tr:hover td.CLOSED > .status {
+  display: none;
+}
+
+tr:hover td.CLOSED > .time {
+  display: initial;
+  visibility: initial;
+}
+
+tr:hover > .date {
+  border-left: 2px solid var(--color-purple);
+}
+
+.header {
+  top: 350px;
+  position: sticky;
+  z-index: 1;
+}
+
+.container {
+  border-bottom: unset!important;
+  overflow: initial;
+}
+
+@media screen and (max-width: 800px) {
+  .hide-mobile {
+    display: none;
+  }
+
+  .header {
+    z-index: 0;
+    top: initial;
+  }
+
+  .container {
+    overflow-x: scroll!important;
+    overflow-y: hidden!important;
+  }
+}

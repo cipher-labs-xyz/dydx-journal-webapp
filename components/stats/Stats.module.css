@@ -1,0 +1,101 @@
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: var(--color-layer-darker);
+  border-bottom: 1px solid var(--color-layer-lighter);
+  gap: 1px;
+}
+
+.stats > div {
+  padding: 26px;
+  outline: 1px solid var(--color-layer-lighter);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 60px;
+}
+
+.stats h3 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.stats h2 {
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.win {
+  color: var(--color-green);
+}
+
+.loss {
+  color: var(--color-red);
+}
+
+
+.up::before {
+  color: var(--color-green);
+  content: "▴";
+}
+
+.down::before {
+  color: var(--color-red);
+  content: "▾";
+}
+
+.menustats {
+  border: none!important;
+  display: flex;
+  grid-area: menustats;
+  gap: 30px;
+  padding: 30px 0;
+}
+
+.progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.menustats .circle {
+  position: absolute;
+  stroke-linecap: round;
+}
+
+.menustats .circletext {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.menustats h2 {
+  line-height: 0.8;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.menustats small {
+  color: var(--color-text-dark);
+  font-size: 0.75em;
+}
+
+@media screen and (max-width: 1200px) {
+  .menustats {
+    justify-content: flex-end;
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .menustats {
+    justify-content: center!important;
+    padding: 0 0 30px 0;
+  }
+}

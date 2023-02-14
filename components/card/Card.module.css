@@ -1,0 +1,103 @@
+.card {
+  background-color: var(--color-layer-darker);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.card h2 {
+  flex-grow: 1;
+}
+
+.card h2, .card p {
+  margin: 0
+}
+
+.card > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.card > hr {
+  width: 100%;
+  margin-left: -25px;
+  margin-right: -25px;
+  align-self: center;
+}
+
+.heading {
+  font-size: 1em;
+  margin-top: 0;
+}
+
+.value {
+  font-size: 26px;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--color-text-dark);
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.footer {
+  font-size: 14px;
+  color: var(--color-text-dark);
+  background-color: var(--color-layer-darker);
+  border-radius: 0 0 12px 12px;
+  padding: 20px 25px 20px 25px;
+  border-top: var(--color-layer-lighter) 1px solid;
+}
+
+.hedgies {
+  gap: 0!important;
+  height: 28px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.hedgies:hover {
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    white-space: break-spaces;
+  }
+
+  .card p {
+    font-size: 0.7em;
+  }
+
+  .card .heading {
+    font-size: 0.75em;
+  }
+
+  .card .value {
+    font-size: 0.9em;
+  }
+
+  .card > div {
+    word-break: break-all;
+  }
+
+  .card svg, .card img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hedgies {
+    height: 20px;
+  }
+}

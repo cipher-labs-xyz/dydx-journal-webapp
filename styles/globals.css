@@ -1,0 +1,123 @@
+@font-face {
+  font-family: Circular;
+  src: url(/fonts/CircularStd-Medium.ttf);
+}
+
+@font-face {
+  font-family: Circular;
+  src: url(/fonts/CircularStd-Bold.ttf);
+  font-weight: bold;
+}
+
+:root {
+  --color-layer-darkest: #0b0b13;
+  --color-layer-darker: #12121a;
+  --color-layer-dark: #171722;
+  --color-layer-base: #1c1c28;
+  --color-layer-light: #232334;
+  --color-layer-lighter: #303044;
+  --color-layer-lightest: #454258;
+
+  --color-loading-bar-shine: #51516d;
+  --color-border-grey: #2d2d3d;
+  --color-border-lighter: #393953;
+
+  --color-text-light: #f7f7f7;
+  --color-text-base: #c3c2d4;
+  --color-text-dark: #6f6e84;
+
+  --color-purple: #5973fe;
+  --color-green: #3fb68b;
+  --color-red: #ff5353;
+  --color-yellow: #ffb648;
+  --color-teal: #00ddc6;
+
+  --color-bronze: #ba6c38;
+  --color-silver: #c1c1c1;
+  --color-gold: #ffb846;
+  --color-platinum: #7af6c2;
+  --color-diamond: #915eff;
+
+  --color-green-background: rgba(63, 182, 139, 0.1);
+  --color-red-background: rgb(255, 83, 83, 0.1);
+  --color-base-background: rgb(195, 194, 212, 0.1);
+
+  --perspective: 1000px;
+  --parallax-factor: 1.1;
+}
+
+body {
+  font-family: Circular, Arial, Helvetica;
+  -webkit-font-feature-settings: "zero" 0;
+  font-feature-settings: "zero" 0;
+  scrollbar-width: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-layer-base);
+  color: var(--color-text-base);
+  fill: var(--color-text-base);
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: rgb(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0, 0.3);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button:disabled {
+  cursor: initial;
+}
+
+button:disabled:hover {
+  filter: unset;
+}
+
+button {
+  color: var(--color-text-light)!important;
+  background-color: var(--color-purple);
+  border-radius: 5px;
+  border: none;
+  color: inherit;
+  font: inherit;
+  min-width: 100px;
+  padding: 10px;
+}
+
+hr {
+  border: 1px solid transparent;
+  border-top: 1px solid var(--color-layer-lighter);
+}

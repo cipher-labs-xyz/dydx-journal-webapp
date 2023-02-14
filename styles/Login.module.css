@@ -1,0 +1,250 @@
+.banner > h1 {
+  font-size: min(max(6vh, 2rem), 4rem);
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 75%;
+}
+
+.banner > h1,
+.info h1 {
+  font-weight: bold;
+}
+
+.banner > p {
+  font-size: min(max(1.8vh, 16px), 1.4rem);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  line-height: 1.4em;
+  margin: 0;
+}
+
+.apikeyform {
+  background-color: var(--color-layer-darker);
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  width: 100%;
+  padding: 24px 36px;
+}
+
+.apikeyform > input[type="text"] {
+  all: inherit;
+  background-color: var(--color-layer-base);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 12px;
+  width: 100%;
+  font-size: 1em;
+}
+
+.apikeyform > input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--color-layer-lightest);
+  opacity: 1; /* Firefox */
+}
+
+.apikeyform > input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--color-layer-lightest);
+}
+
+.apikeyform > input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--color-layer-lightest);
+}
+
+.apikeyform > label {
+  accent-color: var(--color-purple);
+  display: block;
+  margin: 20px;
+}
+
+.submit > a {
+  color: var(--color-purple);
+  display: block;
+}
+
+.apikeyform > p {
+  margin-top: 0;
+}
+
+.apikeyform .submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.apikeyform .submit > * {
+  flex-basis: 33.33%;
+  min-width: 115px;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: min(40px, 4vh);
+  min-height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.bgimg {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  top: 15vh;
+  height: 70vh;
+  object-fit: contain;
+}
+
+.banner {
+  transform-style: preserve-3d;
+  perspective: var(--perspective);
+  transition: 0.5s cubic-bezier(0.16, 1, 0.21, 1.58);
+  transform-origin: center;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+.info > * {
+  flex-basis: 50%;
+}
+
+.info .screenshot {
+  border: 15px solid var(--color-layer-lighter);
+  border-radius: 20px;
+  box-sizing: border-box;
+  max-width: 100%;
+  object-fit: contain;
+  height: fit-content;
+}
+
+.info h1 {
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+.info p,
+.faq {
+  line-height: 1.5em;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 60px;
+  row-gap: 10px;
+  text-align: center;
+  justify-content: flex-end;
+  flex-basis: 75%;
+}
+
+.team > * > img {
+  border-radius: 50%;
+}
+
+.team > * > p {
+  color: var(--color-text-light);
+}
+
+.header {
+  padding: 30px;
+  position: fixed;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  backdrop-filter: blur(12px);
+}
+
+.footer {
+  display: flex;
+  padding: 3rem 0;
+  margin-top: 80px;
+  gap: 20px;
+  align-items: center;
+}
+
+.more {
+  color: var(--color-text-dark);
+  fill: var(--color-text-dark);
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+}
+
+.more > p {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .info {
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .info > div {
+    margin: 0 !important;
+    flex-basis: 100%;
+  }
+
+  .middle {
+    flex-wrap: wrap-reverse;
+  }
+
+  .feature {
+    display: none;
+  }
+
+  .banner {
+    margin-bottom: 150px;
+  }
+
+  .submit {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .team {
+    justify-content: center;
+  }
+
+  .header {
+    backdrop-filter: unset;
+    background: linear-gradient(var(--color-layer-darker), transparent);
+    transition: 0.2s;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .main {
+    animation: slide-in 2s backwards;
+  }
+
+  @keyframes slide-in {
+    0% {
+      transform: scale(0) translateZ(calc(1 * var(--perspective)));
+    }
+  }
+}

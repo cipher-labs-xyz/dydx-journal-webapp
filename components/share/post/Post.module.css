@@ -1,0 +1,105 @@
+.wrapper {
+  position: absolute;
+  background-color: var(--color-layer-base);
+  color: var(--color-text-base);
+  left: 0;
+  top: 0;
+  height: 0px;
+  overflow: hidden;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.card {
+  background-color: var(--color-layer-darker);
+  width: 710px;
+  height: 340px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.card.compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-layer-darker);
+  height: 300px;
+  padding: 50px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.stats,
+.card .filters {
+  display: flex;
+  gap: 1px!important;
+  background-color: var(--color-layer-lighter);
+  height: fit-content;
+  white-space: nowrap;
+}
+
+.stats > div {
+  padding: 26px;
+  background-color: var(--color-layer-darker);
+  flex-basis: 50%;
+}
+
+.card .filters > div {
+  padding: 0 26px;
+  background-color: var(--color-layer-darker);
+  flex-basis: 50%;
+}
+
+.card h2.LONG {
+  color: var(--color-green);
+}
+
+.card h2.SHORT {
+  color: var(--color-red);
+}
+
+.stats h3 {
+  margin-top: 0;
+}
+
+.post h2 {
+  color: var(--color-text-light);
+  margin-bottom: 0;
+}
+
+.link {
+  background-color: var(--color-layer-darker);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px;
+  border-radius: 20px;
+}
+
+.twitter {
+  padding: 60px;
+}
+
+.insta-story {
+  padding: 250px 185px;
+}
+
+.insta-story > div {
+  flex-direction: column;
+  gap: 60px;
+}
+
+.insta-post > div.stats, .insta-story > div.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.insta-post {
+  padding: 110px;
+}

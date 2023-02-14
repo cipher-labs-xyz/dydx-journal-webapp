@@ -1,0 +1,128 @@
+.cards {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.profile {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.gridwrapper {
+  background-color: var(--color-layer-darker);
+  border: 1px solid var(--color-layer-lighter);
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-areas:
+    "pnl menustats filters"
+    "chart chart chart"
+    "data data data";
+}
+
+.gridwrapper > * {
+  border-bottom: 1px solid var(--color-layer-lighter);
+}
+
+.data {
+  grid-area: data;
+  border-bottom: none;
+}
+
+.data > * {
+  border-bottom: 1px solid var(--color-layer-lighter);
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+  align-items: center;
+  fill: var(--color-text-light);
+  flex-wrap: wrap;
+}
+
+.tradesmenu {
+  display: flex;
+  padding: 30px;
+  color: var(--color-text-light);
+  background-color: var(--color-layer-dark);
+  align-items: center;
+}
+
+.button {
+  font: inherit;
+  background-color: var(--color-layer-lighter);
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pnl {
+  min-width: 120px;
+  grid-area: pnl;
+  padding: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  border: none;
+}
+
+.pnl h2 {
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .gridwrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .menu > div {
+    flex-grow: 1;
+  }
+  .profile {
+    flex-direction: column;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .cards > * {
+    flex-basis: calc(50% - 10px);
+  }
+  .gridwrapper > div > .menu {
+    flex-wrap: wrap;
+    background-color: var(--color-layer-darker);
+    z-index: 3;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .gridwrapper {
+    grid-template-areas:
+      "pnl menustats menustats"
+      "filters filters filters"
+      "chart chart chart"
+      "data data data";
+  }
+}

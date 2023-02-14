@@ -1,0 +1,27 @@
+.chart {
+  background-image: url(/images/chart-background.png);
+  background-size: cover;
+  background-color: var(--color-layer-dark);
+  box-sizing: border-box;
+  grid-area: chart;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-top: 1px solid var(--color-layer-lighter);
+}
+
+.tooltip {
+  border-radius: 5px;;
+  padding: 10px;
+  background-color: var(--color-layer-darker);
+}
+
+.up::before {
+  color: var(--color-green);
+  content: "▴";
+}
+
+.down::before {
+  color: var(--color-red);
+  content: "▾";
+}
