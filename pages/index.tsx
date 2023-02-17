@@ -72,11 +72,11 @@ export default function Home() {
       const withinPeriod = positions
         .filter((a) => a.createdAt >= end)
         .sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1));
-      if (filters.position) fetchedPositions.push(...withinPeriod.filter((p) => p.side == filters.position));
-      else fetchedPositions.push(...withinPeriod);
+      if (filters.position) fetchedPositions.unshift(...withinPeriod.filter((p) => p.side == filters.position));
+      else fetchedPositions.unshift(...withinPeriod);
 
       if (withinPeriod.length < 100) break;
-      const removed = withinPeriod.pop()!;
+      const removed = withinPeriod.shift()!;
       start = removed.createdAt;
     }
     return fetchedPositions;
