@@ -23,17 +23,18 @@ type Props = {
 
 const addBounds = (data: Position[], period: Period) : {
   runningPnl: number;
+  runningInvested: number;
   closedAt?: Date;
   createdAt: Date;
 }[] => {
   const upper = new Date();
   const lower = new Date(upper);
   lower.setDate(lower.getDate() - period);
-  if (!data.length) return [{ runningPnl: 0, closedAt: lower, createdAt: lower }, { runningPnl: 0, closedAt: upper, createdAt: upper }];
+  if (!data.length) return [{ runningPnl: 0, runningInvested: 0, closedAt: lower, createdAt: lower }, { runningPnl: 0, runningInvested: 0, closedAt: upper, createdAt: upper }];
   return [
-    { runningPnl: 0, closedAt: lower, createdAt: lower },
+    { runningPnl: 0, runningInvested: 0, closedAt: lower, createdAt: lower },
     ...data,
-    { runningPnl: data[data.length - 1].runningPnl, closedAt: upper, createdAt: upper },
+    { runningPnl: data[data.length - 1].runningPnl, runningInvested: data[data.length - 1].runningInvested, closedAt: upper, createdAt: upper },
   ];
 };
 

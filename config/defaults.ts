@@ -28,6 +28,7 @@ export const defaultStats = {
   holdingTime: 0,
   maxDrawdown: 0,
   pnl: 0,
+  invested: 0,
   loss: { count: 0, total: 0, holdingTime: 0, averageConsecutive: 0, largestConsecutive: 0, largest: 0 },
   win: { count: 0, total: 0, holdingTime: 0, averageConsecutive: 0, largestConsecutive: 0, largest: 0 },
   sessions: {

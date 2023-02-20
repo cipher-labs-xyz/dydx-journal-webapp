@@ -16,22 +16,17 @@
   background-color: var(--color-layer-darker);
 }
 
-.up::before {
-  margin-right: 6px;
+.up {
   color: var(--color-green);
-  content: "▴";
+  fill: var(--color-green);
 }
 
-.down::before {
-  margin-right: 6px;
+.down {
   color: var(--color-red);
-  content: "▾";
+  fill: var(--color-red);
 }
 
-.zero::before {
-  margin-right: 6px;
-  padding: 4px;
+.zero {
   color: var(--color-text-dark);
-  font-weight: bold;
-  content: "-";
+  fill: var(--color-text-dark);
 }
