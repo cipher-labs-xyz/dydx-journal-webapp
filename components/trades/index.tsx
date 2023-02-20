@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Tooltip } from "@mui/material";
 import { Position } from "../../helpers/dataProcessing";
-import { formatCurrency } from "../../helpers/formatting";
+import { formatCurrency, formatNumber } from "../../helpers/formatting";
 import { formatTime } from "../../helpers/formatting";
 import { timeOptions } from "../../config/defaults";
 import Image from "next/image";
@@ -33,6 +33,7 @@ const Trades = ({ positions, setReferenced }: Props) => {
         <TableBody sx={{ overflowX: "scroll" }}>
           {positions
             .map((row, i) => {
+              const pnlPercent = Math.abs((row.realizedPnl / (row.entryPrice * row.sumOpen)) * 100)
               return (
                 <TableRow
                   className={styles[row.status]}
@@ -100,7 +101,7 @@ const Trades = ({ positions, setReferenced }: Props) => {
                         <span className={`${styles.pnl} ${styles[row.realizedPnl ? row.outcome : "even"]}`}>
                           {formatCurrency(row.realizedPnl)}
                         </span>
-                        <br></br>
+                        <br/>
                         <Tooltip title="Unrealised P&amp;L" arrow>
                           <span className={`${styles.pnl} ${styles.unrealized} ${styles[row.outcome]}`}>
                             {formatCurrency(row.unrealizedPnl)}
@@ -108,7 +109,11 @@ const Trades = ({ positions, setReferenced }: Props) => {
                         </Tooltip>
                       </>
                     ) : (
+                      <>
                       <span className={`${styles.pnl} ${styles[row.outcome]}`}>{formatCurrency(row.realizedPnl)}</span>
+                      <br/>
+                      <span className={styles.price}>{pnlPercent < 0.01 ? "<0.01" : formatNumber(pnlPercent)}%</span>
+                      </>
                     )}
                   </TableCell>
                   <TableCell className={styles["hide-mobile"]}>
