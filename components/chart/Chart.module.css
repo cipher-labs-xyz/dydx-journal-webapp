@@ -16,22 +16,40 @@
   background-color: var(--color-layer-darker);
 }
 
+.up {
+  color: var(--color-green)
+}
+
+.down {
+  color: var(--color-red);
+}
+
+.zero {
+  color: var(--color-text-dark);
+}
+
 .up::before {
-  margin-right: 6px;
+  margin-right: 2px;
   color: var(--color-green);
   content: "▴";
+  font-size: 1.5em;
 }
 
 .down::before {
-  margin-right: 6px;
+  margin-right: 2px;
   color: var(--color-red);
-  content: "▾";
+  content: "▴";
+  display: inline-block;
+  transform: rotate(180deg);
+  font-size: 1.5em;
 }
 
 .zero::before {
-  margin-right: 6px;
+  margin-right: 2px;
   padding: 4px;
   color: var(--color-text-dark);
   font-weight: bold;
   content: "-";
+  font-size: 1.5em;
+  vertical-align: middle;
 }

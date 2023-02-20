@@ -27,6 +27,7 @@ export type Stats = {
   count: number;
   maxDrawdown: number;
   pnl: number;
+  invested: number;
   holdingTime: number;
 };
 
@@ -49,6 +50,7 @@ export type Position = Omit<
   outcome: "win" | "loss" | "even" | "open";
   pnl: number;
   runningPnl: number;
+  runningInvested: number;
   sumClose: number;
   sumOpen: number;
   unrealizedPnl: number;
@@ -100,6 +102,7 @@ const processPositions = (positions: PositionResponseObject[]) => {
     count: positions.length,
     maxDrawdown: -Infinity,
     pnl: 0,
+    invested: 0,
     holdingTime: 0,
   };
 
@@ -148,11 +151,13 @@ const processPositions = (positions: PositionResponseObject[]) => {
         closedAt: undefined,
         pnl: 0,
         runningPnl: stats.pnl,
+        runningInvested: stats.invested,
         ...currency
       };
 
     const outcome = determineOutcome(realizedPnl);
     stats.pnl += realizedPnl;
+    stats.invested += entryPrice * sumOpen;
     if (closedAt) updateSessions(stats.sessions, realizedPnl, closedAt)
     if (outcome == "win" || outcome == "loss") updateWinLossStats(outcome, holdingTime, realizedPnl);
 
@@ -165,7 +170,7 @@ const processPositions = (positions: PositionResponseObject[]) => {
 
     stats.holdingTime += holdingTime;
 
-    return { ...position, outcome, holdingTime, createdAt, closedAt, pnl: realizedPnl, runningPnl: stats.pnl, ...currency };
+    return { ...position, outcome, holdingTime, createdAt, closedAt, pnl: realizedPnl, runningPnl: stats.pnl, runningInvested: stats.invested, ...currency };
   });
 
   stats.win.averageConsecutive = stats.win.count / interim.win.runsCount;
