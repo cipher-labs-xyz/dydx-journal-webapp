@@ -7,12 +7,9 @@ import {
   TradingRewardsResponseObject,
   UserResponseObject,
   PositionResponseObject,
-  Market,
   ProfilePrivateResponseObject,
   AccountResponseObject,
 } from "@dydxprotocol/v3-client";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 
 import Card from "../components/card";
 import Hedgie from "../components/hedgie";
@@ -25,13 +22,15 @@ import MenuStats from "../components/stats/menu-stats";
 import { getLimits, getApiKeyCredentials } from "../helpers/util";
 import Chart from "../components/chart";
 import { useRouter } from "next/router";
-import { Button } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import Button from "@mui/material/Button"
 import { Download } from "../svgs";
 import { formatNumber } from "../helpers/formatting";
 import Share from "../components/share";
 import Filters from "../components/filters";
 import HedgieCard from "../components/card/HedgieCard";
 import MetaTags from "../components/metatags";
+import Modal from "../components/modal";
 const HTTP_HOST = "https://api.dydx.exchange";
 
 type UserResponseWithMissingFields = UserResponseObject & {
@@ -111,10 +110,12 @@ export default function Home() {
 
   useEffect(() => {
     const time = new Date();
+    setLoading(true);
     fetchPositions(time).then((positions) => {
       const { stats, enhancedPositions } = processPositions(positions);
       setPositions(enhancedPositions);
       setStats(stats);
+      setLoading(false);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
@@ -130,6 +131,7 @@ export default function Home() {
       </Head>
       <Header user={user} />
       <main className="container" style={{ paddingBottom: "50px" }}>
+        <Modal show={loading} setShow={setLoading} ><CircularProgress sx={{ color: "var(--color-text-base)" }}/></Modal>
         <div className={styles.profile}>
           <Hedgie hedgies={profile?.hedgiesHeld} fit />
           <div className={styles.cards}>
