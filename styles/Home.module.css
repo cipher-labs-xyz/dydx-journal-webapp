@@ -20,7 +20,7 @@
   border-bottom: none;
   border-radius: 20px 20px 0 0;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 210px 1fr;
   grid-template-areas:
     "pnl menustats filters"
     "chart chart chart"

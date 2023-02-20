@@ -37,8 +37,6 @@ const addBounds = (data: Position[], period: Period) : {
   ];
 };
 
-// TODO: screen responsiveness
-
 const Chart = ({ period, data, tooltipRef, referenced }: Props) => {
   const tickFormatter = (value: number) => {
     if (period == 1)

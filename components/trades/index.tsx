@@ -14,7 +14,7 @@ type Props = {
 
 const Trades = ({ positions, setReferenced }: Props) => {
   if (!positions || !positions.length)
-    return <h1 style={{ width: "100%", textAlign: "center" }}>No trades for selected period/market</h1>;
+    return null;
   return (
     <TableContainer component={Paper} className={styles.container} style={{ overflow: "initial" }}>
       <Table stickyHeader>

@@ -17,11 +17,21 @@
 }
 
 .up::before {
+  margin-right: 6px;
   color: var(--color-green);
   content: "▴";
 }
 
 .down::before {
+  margin-right: 6px;
   color: var(--color-red);
   content: "▾";
+}
+
+.zero::before {
+  margin-right: 6px;
+  padding: 4px;
+  color: var(--color-text-dark);
+  font-weight: bold;
+  content: "-";
 }
