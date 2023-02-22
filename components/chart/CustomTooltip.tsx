@@ -8,8 +8,8 @@ import styles from "./Chart.module.css";
 
 const symbols = {
   up: <ArrowUp width={8} height={8} />,
-  down: <ArrowDown width={8} height={8} />,
-  zero: <span style={{ fontWeight: "bold", fontSize: "1.4em" }}>-</span>
+  down: <ArrowDown width={8} height={8}  />,
+  zero: <span style={{ fontWeight: "bold", fontSize: "1.4em", lineHeight: "0" }}>-</span>
 }
 
 const CustomTooltip = ({ pnl, label, invested }: { pnl: number; label: string; invested: number }) => {
@@ -18,7 +18,7 @@ const CustomTooltip = ({ pnl, label, invested }: { pnl: number; label: string; i
     <>
       <small style={{ display: "block", marginBottom: "10px" }}>{label}</small>
         <h2>{formatCurrency(Math.abs(pnl))}</h2>
-        <small className={pnl < 0 ? styles.down : pnl > 0 ? styles.up : styles.zero} style={{ display: "flex", marginTop: "2px", alignItems: "center", gap: "6px" }}>
+        <small className={pnl < 0 ? styles.down : pnl > 0 ? styles.up : styles.zero} style={{ display: "flex", marginTop: "8px", alignItems: "center", gap: "6px" }}>
           {pnl < 0 ? symbols.down : pnl > 0 ? symbols.up : symbols.zero}
           <span>{pnlPercent == 0 ? 0 : pnlPercent < 0.01 ? "<0.01" : formatNumber(pnlPercent)}%</span>
         </small>
