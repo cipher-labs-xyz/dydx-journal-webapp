@@ -1,3 +1,4 @@
+import { PositionStatus } from "@dydxprotocol/v3-client";
 import { RefObject } from "react";
 import {
   ResponsiveContainer,
@@ -47,7 +48,7 @@ const Chart = ({ period, data, tooltipRef, referenced }: Props) => {
     return new Date(value).toLocaleDateString(undefined, { day: "2-digit", month: "2-digit" });
   };
 
-  const hist = addBounds(data, period);
+  const hist = addBounds(data.filter((a) => a.status != PositionStatus.OPEN), period);
   const color = hist[hist.length -1].runningPnl < 0 ? "var(--color-red)" : "var(--color-green)"
 
   return (

@@ -20,7 +20,7 @@ const Trades = ({ positions, setReferenced }: Props) => {
       <Table stickyHeader>
         <TableHead className={styles.header}>
           <TableRow>
-            <TableCell>Date & Time</TableCell>
+            <TableCell>Date &amp; Time</TableCell>
             <TableCell>Market</TableCell>
             <TableCell>Position</TableCell>
             <TableCell>Status</TableCell>

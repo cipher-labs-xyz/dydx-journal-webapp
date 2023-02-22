@@ -16,7 +16,7 @@ import Hedgie from "../components/hedgie";
 import Header from "../components/header";
 import Trades from "../components/trades";
 import Stats from "../components/stats";
-import processPositions, { Position, Stats as TStats } from "../helpers/dataProcessing";
+import processPositions, { Position, sortPositions, Stats as TStats } from "../helpers/dataProcessing";
 import { defaultStats, defaultMarkets, csvHeaders, Filters as TFilters } from "../config/defaults";
 import MenuStats from "../components/stats/menu-stats";
 import { getLimits, getApiKeyCredentials } from "../helpers/util";
@@ -78,7 +78,7 @@ export default function Home() {
       const removed = withinPeriod.shift()!;
       start = removed.createdAt;
     }
-    return fetchedPositions;
+    return fetchedPositions.sort(sortPositions);
   };
 
   useEffect(() => {

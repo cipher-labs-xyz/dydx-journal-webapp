@@ -63,6 +63,12 @@ export const determineOutcome = (pnl: number) => {
   return "even";
 };
 
+export const sortPositions = (a: PositionResponseObject, b: PositionResponseObject) => {
+  const at = a.closedAt || a.createdAt
+  const bt = b.closedAt || b.createdAt
+  return at > bt ? 1 : -1
+}
+
 const detemineHoldingTime = (open: Date, closedAt: Date | undefined) => {
   const closed = closedAt || new Date();
   return Math.floor(closed.getTime() - open.getTime());
