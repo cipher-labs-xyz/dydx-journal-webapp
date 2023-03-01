@@ -56,11 +56,11 @@
   flex-basis: 50%;
 }
 
-.card h2.LONG {
+.card h2.LONG, .up {
   color: var(--color-green);
 }
 
-.card h2.SHORT {
+.card h2.SHORT, .down {
   color: var(--color-red);
 }
 

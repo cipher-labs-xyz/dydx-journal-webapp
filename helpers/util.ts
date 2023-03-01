@@ -47,5 +47,3 @@ export const clearApiKeyCredentials = () => {
   window.sessionStorage.removeItem("dYdX_api_passphrase");
   window.sessionStorage.removeItem("dYdX_api_secret");
 };
-
-export const round2 = (n: number) => isNaN(n) ? 0 : Math.round(n*100) / 100;

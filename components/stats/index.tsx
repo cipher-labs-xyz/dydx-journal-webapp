@@ -1,7 +1,7 @@
 import styles from "./Stats.module.css";
 import { Stats as TStats } from "../../helpers/dataProcessing";
-import { formatTime, formatCurrency } from "../../helpers/formatting";
-import { getMaxSession, round2 } from "../../helpers/util";
+import { formatTime, formatCurrency, formatNumber } from "../../helpers/formatting";
+import { getMaxSession } from "../../helpers/util";
 
 type Props = {
   stats: TStats;
@@ -38,11 +38,11 @@ const Stats = ({ stats }: Props) => {
       </div>
       <div>
         <h3>Profit Factor</h3>
-        <h2>{round2(stats.win.total / Math.abs(stats.loss.total))}</h2>
+        <h2>{formatNumber(stats.win.total / Math.abs(stats.loss.total))}</h2>
       </div>
       <div>
         <h3>Payoff Ratio</h3>
-        <h2>{round2(averageWin / averageLoss)}</h2>
+        <h2>{formatNumber(averageWin / averageLoss)}</h2>
       </div>
       <div>
         <h3>Avg. Hold Time / Winners</h3>
@@ -70,11 +70,11 @@ const Stats = ({ stats }: Props) => {
       </div>
       <div>
         <h3>Avg # Consec. Wins</h3>
-        <h2>{round2(stats.win.averageConsecutive)}</h2>
+        <h2>{formatNumber(stats.win.averageConsecutive)}</h2>
       </div>
       <div>
         <h3>Avg # Consec. Losses</h3>
-        <h2>{round2(stats.loss.averageConsecutive)}</h2>
+        <h2>{formatNumber(stats.loss.averageConsecutive)}</h2>
       </div>
     </div>
   );

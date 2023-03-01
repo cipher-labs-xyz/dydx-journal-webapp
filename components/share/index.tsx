@@ -12,6 +12,7 @@ import { Option } from "./post";
 import { Period, TPosition } from "../../config/defaults";
 import { AffiliateLinkData, Market } from "@dydxprotocol/v3-client";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Stats } from "../../helpers/dataProcessing";
 
 const renderOptions: Record<Option, { width: number; height: number }> = {
   twitter: {
@@ -29,18 +30,7 @@ const renderOptions: Record<Option, { width: number; height: number }> = {
 };
 
 export type InfoProps = {
-  stats: {
-    win: {
-      count: number;
-      total: number;
-      largest: number;
-    };
-    loss: {
-      count: number;
-    }
-    count: number;
-    pnl: number;
-  };
+  stats: Stats;
   username: string | null;
   hedgies: number[] | undefined;
   filters: {

@@ -3,7 +3,7 @@ import QRCode from "react-qr-code";
 import styles from "./Post.module.css";
 import { toBlob } from "html-to-image";
 import Hedgie from "../../hedgie";
-import { formatCurrency, formatDiscount } from "../../../helpers/formatting";
+import { formatCurrency, formatDiscount, formatNumber } from "../../../helpers/formatting";
 import Card from "./Card";
 import { DyDxFull } from "../../../svgs";
 import { InfoProps } from "..";
@@ -38,7 +38,13 @@ const Post: FC<Props> = ({ type, setBlob, width, height, stats, hedgies, affilia
       <div className={`${styles.post} ${styles[type]}`} style={{ width, height }}>
         <div style={{ display: "flex", gap: type == "insta-story" ? "60px" : "30px" }}>
           <Hedgie hedgies={hedgies} dimensions={hedgieDims[type]} />
-          <Card showQR={type != "insta-post"} affiliateLink={affiliateLink} filters={filters} username={username} stats={stats} />
+          <Card
+            showQR={type != "insta-post"}
+            affiliateLink={affiliateLink}
+            filters={filters}
+            username={username}
+            stats={stats}
+          />
         </div>
         {type == "insta-post" && affiliateLink && (
           <div className={styles.link}>
@@ -58,16 +64,21 @@ const Post: FC<Props> = ({ type, setBlob, width, height, stats, hedgies, affilia
         )}
         <div className={styles.stats}>
           <div>
-            <h3>Profit</h3>
+            <h3>
+              Profit&nbsp;
+              <span className={stats.pnl ? styles.down : styles.up}>
+                ({formatNumber(stats.invested == 0 ? 0 : (stats.pnl / stats.invested) * 100)}%)
+              </span>
+            </h3>
             <h2>{formatCurrency(stats.pnl)}</h2>
           </div>
           <div>
-            <h3>Largest Win</h3>
-            <h2>{formatCurrency(stats.win.largest)}</h2>
+            <h3>Profit Factor</h3>
+            <h2>{formatNumber(stats.win.total / Math.abs(stats.loss.total))}</h2>
           </div>
           <div>
-            <h3>Average Win</h3>
-            <h2>{formatCurrency(stats.win.total / stats.win.count)}</h2>
+            <h3>Payoff Ratio</h3>
+            <h2>{formatNumber(stats.win.total / stats.win.count / Math.abs(stats.loss.total / stats.loss.count))}</h2>
           </div>
           <div>
             <h3>Trading Expectancy</h3>
