@@ -18,6 +18,6 @@ const currencyFormat = new Intl.NumberFormat("en-US", { style: "currency", curre
 const numberFormat = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 export const formatCurrency = (n: number) => n ? currencyFormat.format(n) : "$0.00"
-export const formatNumber = (n: number) => numberFormat.format(n)
+export const formatNumber = (n: number) => isNaN(n) ? "0.00" : numberFormat.format(n)
 
 export const formatDiscount = (s: string) => 100 - parseFloat(s) * 100
