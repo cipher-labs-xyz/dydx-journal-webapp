@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./Hedgie.module.css"
+import sources from "./sources";
 
 type Props = {
   hedgies: number[] | undefined;
@@ -21,12 +22,13 @@ const Hedgie = ({ hedgies, dimensions = 300, fit = false }: Props) => {
     );
   return (
     <Image
-      src={`https://media.dydx.exchange/hedgies/${hedgies[0]}.png`}
+      src={`https://ipfs.io/ipfs/${sources[hedgies[0]]}`}
       alt={`Hedgie ${hedgies[0]}`}
       width={dimensions}
       height={dimensions}
       className={`${styles.hedgie} ${fit && styles.fit}`}
       unoptimized
+      priority
     />
   );
 };

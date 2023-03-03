@@ -27,7 +27,7 @@ const Post: FC<Props> = ({ type, setBlob, width, height, stats, hedgies, affilia
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    ref.current && toBlob(ref.current, { width, height, cacheBust: true }).then(setBlob);
+    ref.current && toBlob(ref.current, { width, height }).then(setBlob);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
