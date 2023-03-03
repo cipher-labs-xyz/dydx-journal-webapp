@@ -66,7 +66,7 @@ const Post: FC<Props> = ({ type, setBlob, width, height, stats, hedgies, affilia
           <div>
             <h3>
               Profit&nbsp;
-              <span className={stats.pnl ? styles.down : styles.up}>
+              <span className={stats.pnl >= 0 ? styles.up : styles.down}>
                 ({formatNumber(stats.invested == 0 ? 0 : (stats.pnl / stats.invested) * 100)}%)
               </span>
             </h3>
