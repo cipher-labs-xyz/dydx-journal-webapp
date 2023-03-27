@@ -51,10 +51,7 @@ export default function Home() {
   const [profile, setProfile] = useState<ProfilePrivateResponseObject | undefined>();
   const [accounts, setAccounts] = useState<AccountResponseObject[]>([]);
   const [referenced, setReferenced] = useState<Position>();
-  const [filters, setFilters] = useState<TFilters>({
-    market: defaultMarkets[1],
-    period: 7,
-  });
+  const [filters, setFilters] = useState<TFilters>({ period: 7 });
 
   const tooltipRef = useRef<HTMLDivElement>(null);
 
