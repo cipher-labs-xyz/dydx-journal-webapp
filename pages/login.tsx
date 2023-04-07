@@ -70,20 +70,10 @@ export default function Login() {
         <link rel="preload" href="/fonts/CircularStd-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       </Head>
       <div className={styles.header}>
-        <a
-          href="https://dydx.exchange/r/PFNCPKKA"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://dydx.exchange/r/PFNCPKKA" target="_blank" rel="noreferrer">
           <Logo src="/logo.svg" alt="dYdX Logo" width={40} height={40} />
         </a>
-        <a
-          href="https://dydx.exchange/r/PFNCPKKA"
-          target="_blank"
-          rel="noreferrer"
-          style={{
-          }}
-        >
+        <a href="https://dydx.exchange/r/PFNCPKKA" target="_blank" rel="noreferrer" style={{}}>
           <button style={{ minWidth: "initial", padding: "10px 15px" }}>Trade</button>
         </a>
       </div>
@@ -104,12 +94,12 @@ export default function Login() {
               objectFit: "contain",
               width: "fit-content",
               position: "relative",
-              zIndex: "1000"
+              zIndex: "1000",
             }}
             priority
           />
           <h1>Trading Journal</h1>
-          <p>Unlock your trading potential with stats and performance data to help you improve your trading.</p>
+          <p>Unleash your trading potential with valuable stats and performance data to enhance your trading skills.</p>
           <form className={styles.apikeyform} onSubmit={handleLogin} autoComplete="off">
             <p style={{ marginBottom: "20px" }}>API Credentials</p>
             <input type="text" name="key" placeholder="Key" required />
@@ -148,8 +138,8 @@ export default function Login() {
             <div>
               <h1>Profile summary</h1>
               <p>
-                The profile summary provides a quick and easy way to see where you are for the epoch regarding your
-                fees, wallet balance, affiliate commissions and estimated rewards.
+                The profile summary offers a fast and effortless means to assess your current standing for the epoch
+                regarding your fees, wallet balance, affiliate commissions, and projected rewards.
               </p>
             </div>
             <Image
@@ -163,10 +153,11 @@ export default function Login() {
           <div className={`${styles.info} ${styles.middle}`}>
             <Image width={589} height={393} className={styles.screenshot} src="/images/stats.png" alt="Stats" />
             <div>
-              <h1>Trade statistics</h1>
+              <h1>Trade analytics</h1>
               <p>
-                Now you can see helpful stats on all your trades and quickly discover what&apos;s working and what
-                isn&apos;t. Do you know what your most profitable trading session is? Find out today!
+                Gain valuable insights into your trading with comprehensive statistics that reveal what&apos;s working
+                and what&apos;s not. Have you ever wondered about your most lucrative trading session? Find out today
+                with just a few clicks.
               </p>
             </div>
           </div>
@@ -174,8 +165,8 @@ export default function Login() {
             <div>
               <h1>Made with love</h1>
               <p>
-                This trading journal was made possible through DYDX grants and built by a talented team of passionate
-                tech entrepreneurs based out of Sydney, Australia.
+                Thanks to dYdX grants, a team of skilled tech entrepreneurs from Sydney, Australia, was able to create
+                this exceptional trading journal.
               </p>
             </div>
             <div className={styles.team}>
