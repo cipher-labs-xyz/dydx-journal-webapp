@@ -17,18 +17,18 @@ export type Stats = {
   };
   loss: {
     averageConsecutive: number;
-    count: number;
+    count: number
     holdingTime: number;
     largest: number;
     largestConsecutive: number;
     total: number;
   };
   sessions: Sessions
-  count: number;
+  count: number; // Total number of trades
   maxDrawdown: number;
   pnl: number;
-  invested: number;
-  holdingTime: number;
+  invested: number; // Total amount put in (avg entry price * sum open trades)
+  holdingTime: number; // Time holding in millis
 };
 
 export type Interim = {

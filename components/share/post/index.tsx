@@ -64,13 +64,15 @@ const Post: FC<Props> = ({ type, setBlob, width, height, stats, hedgies, affilia
         )}
         <div className={styles.stats}>
           <div>
-            <h3>
+            <h3>Trades</h3>
+            <h2>{new Intl.NumberFormat("en-US").format(stats.count)}</h2>
+            {/* <h3>
               Profit&nbsp;
               <span className={stats.pnl >= 0 ? styles.up : styles.down}>
                 ({formatNumber(stats.invested == 0 ? 0 : (stats.pnl / stats.invested) * 100)}%)
               </span>
             </h3>
-            <h2>{formatCurrency(stats.pnl)}</h2>
+            <h2>{formatCurrency(stats.pnl)}</h2> */}
           </div>
           <div>
             <h3>Profit Factor</h3>
